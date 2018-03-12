@@ -32,3 +32,7 @@ class App:
             pass
         else:
             raise ValueError("Invalid argument sent")
+
+    def fixerio(self, symbols):
+        """ fixerio currency rates """
+        pass
