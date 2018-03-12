@@ -192,7 +192,7 @@ setup(
     # executes the function `main` from this package when invoked:
     entry_points={  # Optional
         'console_scripts': [
-            'quot=finance_quote.cli:cli',
+            'quote=finance_quote.cli:cli',
         ],
     },
     cmdclass={'doc': BuildDoc},
