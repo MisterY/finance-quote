@@ -139,7 +139,7 @@ setup(
     # Optional
     install_requires=[
         'pytz',
-        'pydatum',
+        'pydatum==0.2.1',
         'click',
         'click_log',
         'requests',
