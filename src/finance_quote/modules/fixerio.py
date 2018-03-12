@@ -8,7 +8,6 @@ from decimal import Decimal
 from finance_quote.base import Source, Quote
 import finance_quote
 
-
 try: import simplejson as json
 except ImportError: import json
 
