@@ -65,7 +65,7 @@ class Fixerio(Source):
 
         result = None
         base_url = 'http://api.fixer.io/latest'
-        query = base_url + f"?base={base_currency}"
+        query = base_url + "?base=" + base_currency
 
         # if symbols:
         #     symbols_csv = ",".join(symbols)
@@ -73,7 +73,7 @@ class Fixerio(Source):
         #     query += f"&symbols={symbols_csv}"
 
         try:
-            self.logger.debug(f"retrieving rates from {query}")
+            self.logger.debug("retrieving rates from %s" % query")
             response = requests.get(query)
             # print("[%s] %s" % (response.status_code, response.url))
             if response.status_code != 200:
@@ -84,7 +84,7 @@ class Fixerio(Source):
         except requests.ConnectionError as error:
             self.logger.error(error)
 
-        self.logger.debug(f"Latest prices downloaded.")
+        self.logger.debug("Latest prices downloaded.")
 
         # Since these are daily rates, cache them into a file.
         # Ignored for now since we are downloading individual currencies, not all together.
@@ -113,7 +113,7 @@ class Fixerio(Source):
         exists = os.path.isfile(file_path)
 
         if exists:
-            self.logger.debug(f"Cached file found at {file_path}")
+            self.logger.debug("Cached file found at " + file_path)
 
         return exists
 
@@ -121,7 +121,7 @@ class Fixerio(Source):
         """
         Assemble full file path for the given name (date).
         """
-        return os.path.abspath(f"{self.cache_path}/{filename}.json")
+        return os.path.abspath("%s/%s.json" % self.cache_path, filename)
 
     def __read_rates_from_file(self):
         file_path = self.get_todays_file_path()
@@ -143,7 +143,7 @@ class Fixerio(Source):
 
         with open(filename, 'w') as file:
             file.write(content)
-            self.logger.debug(f"rates saved in {filename}.")
+            self.logger.debug("rates saved in " + filename + ".")
 
 
 class FixerioModelMapper:
