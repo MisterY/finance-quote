@@ -93,17 +93,20 @@ class Fixerio(Source):
 
     def get_yesterdays_file_path(self):
         """ Full path to the today's rates file. """
-        from gnucash_portfolio.lib import generic
+        from pydatum import Datum
+        datum = Datum()
+        datum.yesterday()
+        yesterday = datum.get_iso_date_string()
 
-        yesterday = generic.get_date_iso_string(generic.get_yesterday())
         return self.__get_rate_file_path(yesterday)
 
     def get_todays_file_path(self):
         """ path to today's cached file """
-        from gnucash_portfolio.lib import generic
+        from pydatum import Datum
+        datum = Datum()
+        datum.today()
+        today = datum.get_iso_date_string()
 
-        #today = generic.get_date_iso_string(generic.get_today())
-        today = generic.get_today()
         return self.__get_rate_file_path(today)
 
     def latest_rates_exist(self):
