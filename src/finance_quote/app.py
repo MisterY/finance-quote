@@ -5,7 +5,7 @@ entry point for the users of the library.
 """
 import logging
 from typing import List
-from .modules.fixerio import Fixerio
+from finance_quote.modules.fixerio import Fixerio
 
 class App:
     """ The main entry point to the F::Q library """

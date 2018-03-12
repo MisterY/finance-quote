@@ -73,7 +73,7 @@ class Fixerio(Source):
         #     query += f"&symbols={symbols_csv}"
 
         try:
-            self.logger.debug("retrieving rates from %s" % query")
+            self.logger.debug("retrieving rates from %s" % query)
             response = requests.get(query)
             # print("[%s] %s" % (response.status_code, response.url))
             if response.status_code != 200:

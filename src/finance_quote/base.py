@@ -31,7 +31,7 @@ class Quote:
         symbol = "{symbol:<13}".format(symbol)
 
         value = "{value:>6}".format(self.value)
-        return ("<Quote ('{symbol}',date:{datetime},value:{value},currency:{currency})>".format(symbol, datetime=self.datetime, value, currency=self.currency))
+        return ("<Quote ('{symbol}',date:{datetime},value:{value},currency:{currency})>".format(symbol=symbol, datetime=self.datetime, value=value, currency=self.currency))
 
 class Source:
     """Class to represent a source of symbols or quotes"""
