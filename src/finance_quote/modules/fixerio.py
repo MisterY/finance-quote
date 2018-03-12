@@ -5,7 +5,7 @@ from datetime import datetime
 import logging
 from decimal import Decimal
 
-#from finance_quote.
+from finance_quote.base import Source, Quote
 import finance_quote
 
 
@@ -13,12 +13,12 @@ try: import simplejson as json
 except ImportError: import json
 
 
-class FixerioQuote(base.Quote):
+class FixerioQuote(Quote):
     """ Fixer.io-specific quote """
     pass
 
 
-class Fixerio:
+class Fixerio(Source):
     """Retrieves prices from data files or online provider(s)"""
     def __init__(self):
         self.cache_path = tempfile.gettempdir()
