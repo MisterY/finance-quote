@@ -2,6 +2,6 @@
 @echo off
 cls
 
-pylint pricedb --output-format=colorized
+pylint src --output-format=colorized
 
 ::pause

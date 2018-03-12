@@ -5,7 +5,7 @@ entry point for the users of the library.
 """
 import logging
 from typing import List
-
+from .modules.fixerio import Fixerio
 
 class App:
     """ The main entry point to the F::Q library """
@@ -33,6 +33,7 @@ class App:
         else:
             raise ValueError("Invalid argument sent")
 
-    def fixerio(self, symbols):
+    def fixerio(self, base_currency: str, symbols: str):
         """ fixerio currency rates """
-        pass
+        agent = Fixerio()
+        #agent.

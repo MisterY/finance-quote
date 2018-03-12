@@ -1,14 +1,30 @@
 """ Fixer.io currency rates """
+import os
+import tempfile
+from datetime import datetime
+import logging
+from decimal import Decimal
 
+#from finance_quote.
 import finance_quote
 
-class Fixerio
+
+try: import simplejson as json
+except ImportError: import json
+
+
+class FixerioQuote(base.Quote):
+    """ Fixer.io-specific quote """
+    pass
+
+
+class Fixerio:
     """Retrieves prices from data files or online provider(s)"""
     def __init__(self):
         self.cache_path = tempfile.gettempdir()
         self.logger = logging.getLogger(__name__)
 
-    def download(self, namespace: str, mnemonic: str, currency: str) -> PriceModel:
+    def download(self, namespace: str, mnemonic: str, currency: str) -> FixerioQuote:
         """ Download latest rates. Caches into temp directory. """
         assert namespace == "CURRENCY"
 
@@ -124,11 +140,11 @@ class Fixerio
 
 
 class FixerioModelMapper:
-    """ Maps the result from Fixer.io into an array of PriceModels """
+    """ Maps the result from Fixer.io into an array of FixerioQuote """
     def __init__(self, json_response):
         self.__data = json_response
 
-    def get_model_for_symbol(self, symbol: str) -> PriceModel:
+    def get_model_for_symbol(self, symbol: str) -> FixerioQuote:
         """ Read and map a single currency rate """
         from gnucash_portfolio.lib import datetimeutils
 

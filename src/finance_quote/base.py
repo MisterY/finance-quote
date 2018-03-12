@@ -1,5 +1,5 @@
 import datetime
-
+from decimal import Decimal
 import requests
 
 
@@ -39,15 +39,15 @@ class Source:
 
     def get_latest(self, symbol) -> Quote:
         """Return the latest quote for a symbol"""
-        raise NotImplemented
+        raise NotImplementedError
 
     def get_historical(self, symbol, date_from, date_to, tz=None) -> Quote:
         """Return the historical of quotes for a symbol"""
-        raise NotImplemented
+        raise NotImplementedError
 
     def get_symbol(self, symbol) -> Symbol:
         """Return information about a symbol"""
-        raise NotImplemented
+        raise NotImplementedError
 
 def normalize(d):
     if isinstance(d, datetime.datetime):
