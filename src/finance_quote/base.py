@@ -26,11 +26,12 @@ class Quote:
         self.currency: str = None
 
     def __repr__(self):
-        symbol = f"{self.namespace}:{self.symbol}" if self.namespace else self.symbol
-        symbol = f"{symbol:<13}"
+        symbol = ("{namespace}:{symbol}".format(namespace=self.namespace, symbol=self.symbol) 
+                    if self.namespace else self.symbol)
+        symbol = "{symbol:<13}".format(symbol)
 
-        value = f"{self.value:>6}"
-        return f"<Quote ('{symbol}',date:{self.datetime},value:{value},currency:{self.currency})>"
+        value = "{value:>6}".format(self.value)
+        return ("<Quote ('{symbol}',date:{datetime},value:{value},currency:{currency})>".format(symbol, datetime=self.datetime, value, currency=self.currency))
 
 class Source:
     """Class to represent a source of symbols or quotes"""
