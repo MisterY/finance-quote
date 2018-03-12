@@ -26,14 +26,18 @@ class Fixerio(Source):
 
     def download(self, namespace: str, mnemonic: str, currency: str) -> FixerioQuote:
         """ Download latest rates. Caches into temp directory. """
+        namespace = namespace.upper()
         assert namespace == "CURRENCY"
+        # namespace is ignored, anyways.
         currency = currency.upper()
         mnemonic = mnemonic.upper()
-        namespace = namespace.upper()
+        # make sure the symbol does not contain namespace
+        if ":" in mnemonic:
+            raise ValueError("Currency symbol should not contain namespace.")
 
         rates_dict = None
         if self.latest_rates_exist():
-            self.logger.debug(f"Cached rates found.")
+            self.logger.debug("Cached rates found.")
             rates_dict = self.__read_rates_from_file()
         else:
             rates_dict = self.__download_rates(currency)
