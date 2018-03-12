@@ -152,10 +152,10 @@ class FixerioModelMapper:
 
     def get_model_for_symbol(self, symbol: str) -> FixerioQuote:
         """ Read and map a single currency rate """
-        from gnucash_portfolio.lib import datetimeutils
+        from datetime import datetime
 
         date_str = self.__data["date"]
-        rate_date = datetimeutils.parse_iso_date(date_str)
+        rate_date = datetime.strptime(date_str, "%Y-%m-%d")
         assert isinstance(rate_date, datetime)
 
         base = self.__data["base"]
