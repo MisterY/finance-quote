@@ -33,7 +33,8 @@ class App:
         else:
             raise ValueError("Invalid argument sent")
 
-    def fixerio(self, base_currency: str, symbols: str):
+    def fixerio(self, base_currency: str, symbol: str):
         """ fixerio currency rates """
         agent = Fixerio()
-        #agent.
+        result = agent.download("CURRENCY", symbol, base_currency)
+        return result

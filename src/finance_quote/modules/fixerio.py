@@ -27,6 +27,9 @@ class Fixerio(Source):
     def download(self, namespace: str, mnemonic: str, currency: str) -> FixerioQuote:
         """ Download latest rates. Caches into temp directory. """
         assert namespace == "CURRENCY"
+        currency = currency.upper()
+        mnemonic = mnemonic.upper()
+        namespace = namespace.upper()
 
         rates_dict = None
         if self.latest_rates_exist():

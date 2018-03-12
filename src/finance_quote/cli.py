@@ -26,15 +26,15 @@ def alphavantage():
 
 @click.command()
 @click.argument("base", "Base currency ISO symbol (i.e. EUR)")
-@click.argument("symbols", "List of symbols to fetch the rates for")
-def fixerio(base: str, symbols: str):
+@click.argument("symbol", "Symbols to fetch the rates for")
+def fixerio(base: str, symbol: str):
     """ Fixerio currency rates """
     base = base.upper()
 
     app = App()
     app.logger = logger
-    quote = app.fixerio(base, symbols)
-    # TODO display fixerio quote
+    quote = app.fixerio(base, symbol)
+    # display fixerio quote
     print(quote)
 
 #############################################
