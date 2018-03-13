@@ -21,7 +21,7 @@ class App:
         if provider == "alphavantage":
             self.alphavantage(symbols)
         elif provider == "fixerio":
-            self.fixerio()
+            self.fixerio(currency, symbols)
         else:
             raise ValueError("Provider not supported: " + provider)
 
