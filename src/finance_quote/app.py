@@ -13,10 +13,15 @@ class App:
         self.logger = logging.getLogger(__name__)
         self.modules = ['alphavantage']
 
-    def download(self, provider: str, symbols):
+    def download(self, provider: str, symbols, currency: str):
         """ A generic method that takes the provider as a string parameter """
-        if provider.lower() == "alphavantage":
+        provider = provider.lower()
+        currency = currency.upper()
+
+        if provider == "alphavantage":
             self.alphavantage(symbols)
+        elif provider == "fixerio":
+            self.fixerio()
         else:
             raise ValueError("Provider not supported: " + provider)
 
