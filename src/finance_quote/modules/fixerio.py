@@ -123,7 +123,8 @@ class Fixerio(Source):
         """
         Assemble full file path for the given name (date).
         """
-        return os.path.abspath("%s/%s.json" % self.cache_path, filename)
+        return os.path.abspath("{cache_path}/{filename}.json".format(
+            cache_path=self.cache_path, filename=filename))
 
     def __read_rates_from_file(self):
         file_path = self.get_todays_file_path()
