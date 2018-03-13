@@ -19,11 +19,11 @@ class Symbol:
 class Quote:
     """Class to represent a quote (price, ...)"""
     def __init__(self):
-        self.datetime: datetime = None
-        self.namespace: str = None
-        self.symbol: str = None
-        self.value: Decimal = Decimal(0)
-        self.currency: str = None
+        self.datetime = None # : datetime
+        self.namespace = None # : str
+        self.symbol = None # : str
+        self.value = Decimal(0) # : Decimal
+        self.currency = None # : str
 
     def __repr__(self):
         symbol = ("{namespace}:{symbol}".format(namespace=self.namespace, symbol=self.symbol) 
