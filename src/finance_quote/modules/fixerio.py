@@ -1,4 +1,7 @@
-""" Fixer.io currency rates """
+"""
+Fixer.io currency rates 
+Currently only implements the free public API access with yesterday's rates.
+"""
 import os
 import tempfile
 from datetime import datetime
