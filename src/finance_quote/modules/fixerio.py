@@ -174,7 +174,7 @@ class FixerioModelMapper:
         #rounded = Decimal(rounded_str)
         rate = round(Decimal(1) / value, 6)
 
-        model = Quote()
+        model = FixerioQuote()
         model.namespace = "CURRENCY"
         model.symbol = symbol
         model.value = rate
