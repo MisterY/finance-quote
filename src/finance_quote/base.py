@@ -28,9 +28,9 @@ class Quote:
     def __repr__(self):
         symbol = ("{namespace}:{symbol}".format(namespace=self.namespace, symbol=self.symbol) 
                     if self.namespace else self.symbol)
-        symbol = "{symbol:<13}".format(symbol)
+        symbol = "{symbol:<13}".format(symbol=symbol)
 
-        value = "{value:>6}".format(self.value)
+        value = "{value:>6}".format(value=self.value)
         return ("<Quote ('{symbol}',date:{datetime},value:{value},currency:{currency})>".format(symbol=symbol, datetime=self.datetime, value=value, currency=self.currency))
 
 class Source:

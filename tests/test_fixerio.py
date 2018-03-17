@@ -8,3 +8,11 @@ def test_if_alive():
     logging.debug(result)
 
     assert result != None
+
+def test_latest_quotes():
+    app = App()
+    actual = app.fixerio("eur", "aud")
+
+    assert actual != None
+    logging.debug(actual)
+    print(actual)
