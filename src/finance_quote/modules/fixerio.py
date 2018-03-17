@@ -20,7 +20,7 @@ class FixerioQuote(Quote):
     pass
 
 
-class Fixerio(Source):
+class FixerioSource(Source):
     """Retrieves prices from data files or online provider(s)"""
     def __init__(self):
         self.cache_path = tempfile.gettempdir()

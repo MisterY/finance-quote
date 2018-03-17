@@ -2,6 +2,6 @@
 Alphavantage implementation
 """
 
-class AlphaVantage:
+class AlphaVantageSource:
     """ downloader for av quotes """
     pass
