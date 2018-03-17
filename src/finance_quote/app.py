@@ -5,7 +5,7 @@ entry point for the users of the library.
 """
 import logging
 from typing import List
-from finance_quote.modules.fixerio import Fixerio
+from finance_quote.modules.fixerio import FixerioQuote
 
 class App:
     """ The main entry point to the F::Q library """
@@ -40,6 +40,6 @@ class App:
 
     def fixerio(self, base_currency: str, symbol: str):
         """ fixerio currency rates """
-        agent = Fixerio()
+        agent = FixerioQuote()
         result = agent.download("CURRENCY", symbol, base_currency)
         return result
