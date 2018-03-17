@@ -169,16 +169,15 @@ class FixerioModelMapper:
         rates_dict = self.__data["rates"]
         value_str = rates_dict[symbol]
         value = Decimal(value_str)
-        # The rate is inverse value.
-        rate = Decimal(1) / value
-        # Round to 6 decimals max.
-        rounded_str = "{0:.6f}".format(rate)
-        rounded = Decimal(rounded_str)
+        # The rate is inverse value. Round to 6 decimals max.
+        #rounded_str = "{0:.6f}".format(rate)
+        #rounded = Decimal(rounded_str)
+        rate = round(Decimal(1) / value, 6)
 
         model = Quote()
         model.namespace = "CURRENCY"
         model.symbol = symbol
-        model.value = rounded
+        model.value = rate
         model.datetime = rate_date
         model.currency = base
 
